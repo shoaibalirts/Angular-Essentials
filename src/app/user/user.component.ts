@@ -11,9 +11,10 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 })
 export class UserComponent {
   selectedUser = DUMMY_USERS[randomIndex];
-  name = this.selectedUser.name;
-  changeNameToUpperCase() {
-    this.name = this.name.toUpperCase();
+  onSelectUser() {
+    const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+    console.log(randomIndex);
+    this.selectedUser = DUMMY_USERS[randomIndex];
   }
   get imagePath() {
     return './assets/users/' + this.selectedUser.avatar;
