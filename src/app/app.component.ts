@@ -12,7 +12,7 @@ import { TasksComponent } from './tasks/tasks.component';
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId = 'u1'; // state initial value
+  selectedUserId?:string; // state initial value
   get selectedUser() {
     return this.users.find((user) => user.id === this.selectedUserId);
   }
