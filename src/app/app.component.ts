@@ -13,8 +13,8 @@ import { TasksComponent } from './tasks/tasks.component';
 export class AppComponent {
   users = DUMMY_USERS;
   selectedUserId = 'u1'; // state initial value
-  get getSelectedUser() {
-    return this.users.find((user) => user.id === this.selectedUserId)!;
+  get selectedUser() {
+    return this.users.find((user) => user.id === this.selectedUserId);
   }
   onSelectUser1(id: string) {
     this.selectedUserId = id; // update state to new id when select event is triggered
