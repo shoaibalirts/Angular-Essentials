@@ -1,5 +1,10 @@
-import { Component } from '@angular/core';
-
+import { Component, Input } from '@angular/core';
+interface Task {
+  id?: string;
+  title?: string;
+  summary?: string;
+  dueDate?: string;
+}
 @Component({
   selector: 'app-task',
   standalone: true,
@@ -8,9 +13,8 @@ import { Component } from '@angular/core';
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  // @Input () myTask?:string;
-  @Input () tasks?:
-  get readTask() {
-    return this.task;
+  @Input() childTask!: Task;
+  get task() {
+    return this.childTask;
   }
 }

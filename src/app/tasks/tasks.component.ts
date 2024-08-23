@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
-import { DUMMY_TASKS } from './dummy-tasks';
+import { dummyTasks } from './dummy-tasks';
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -11,6 +11,8 @@ import { DUMMY_TASKS } from './dummy-tasks';
 export class TasksComponent {
   @Input() name?: string;
   // @Input() name: string | undefined; // same as above
-  tasks = DUMMY_TASKS;
+  tasks = dummyTasks;
+  parentTask = this.tasks[0];
+
   selectedTaskId?: string;
 }
