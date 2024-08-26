@@ -1,11 +1,5 @@
 import { Component, Input } from '@angular/core';
-interface ParentTask {
-  id: string;
-  userId: string;
-  title: string;
-  summary: string;
-  dueDate: string;
-}
+import { type ParentTask } from './task.model';
 @Component({
   selector: 'app-task',
   standalone: true,
