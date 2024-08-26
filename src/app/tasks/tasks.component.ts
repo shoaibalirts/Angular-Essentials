@@ -9,10 +9,13 @@ import { dummyTasks } from './dummy-tasks';
   styleUrl: './tasks.component.css',
 })
 export class TasksComponent {
-  @Input() name?: string;
+  @Input({ required: true }) userId!: string; // accepted userId from app component
+  @Input({ required: true }) name!: string;
   // @Input() name: string | undefined; // same as above
   tasks = dummyTasks;
-  parentTask = this.tasks[0];
-
   selectedTaskId?: string;
+
+  get selectedUserTasks() {
+    return this.tasks.filter((task) => this.userId === task.userId); // array of objects
+  }
 }

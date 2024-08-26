@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
-interface Task {
-  id?: string;
-  title?: string;
-  summary?: string;
-  dueDate?: string;
+interface ParentTask {
+  id: string;
+  userId: string;
+  title: string;
+  summary: string;
+  dueDate: string;
 }
 @Component({
   selector: 'app-task',
@@ -13,7 +14,7 @@ interface Task {
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  @Input() childTask!: Task;
+  @Input({ required: true }) childTask!: ParentTask; // error because undefined is not assignable to type Task
   get task() {
     return this.childTask;
   }
