@@ -3,7 +3,10 @@
     <h2>{{ name }}'s Tasks</h2>
     <menu> <button (click)="onStartAddTask()">Add Task</button> </menu>
   </header>
-  @if(isAddingTask){<app-new-task />}
+  @if(isAddingTask){<app-new-task
+    (closeDialogEvent)="onCloseAddTask()"
+    (formSubmitEvent)="onSubmitTask($event)"
+  />}
   <ul>
     @for(task of selectedUserTasks; track task.id){
     <li><app-task [childTask]="task" (complete)="onCompleteTask($event)" /></li>
